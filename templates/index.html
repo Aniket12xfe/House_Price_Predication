@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">-->
+    <title>House Price Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">House Price Prediction</h1>
+        <form id="predictionForm" action="/predict" method="post" class="p-4 border rounded shadow-sm needs-validation" novalidate>
+            <div class="mb-3">
+                <label class="form-label">Area (in sq. ft):</label>
+                <input type="number" name="area" class="form-control" required>
+                <div class="invalid-feedback">Please enter the area.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Bedrooms:</label>
+                <input type="number" name="bedrooms" class="form-control" required>
+                <div class="invalid-feedback">Please enter the number of bedrooms.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Bathrooms:</label>
+                <input type="number" step="1" name="bathrooms" class="form-control" required>
+                <div class="invalid-feedback">Please enter the number of bathrooms.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Stories:</label>
+                <input type="number" name="stories" class="form-control" required>
+                <div class="invalid-feedback">Please enter the number of stories.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Main Road (Yes/No):</label>
+                <select name="mainroad" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="invalid-feedback">Please select an option.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Guestroom (Yes/No):</label>
+                <select name="guestroom" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="invalid-feedback">Please select an option.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Basement (Yes/No):</label>
+                <select name="basement" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="invalid-feedback">Please select an option.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Hot Water Heating (Yes/No):</label>
+                <select name="hotwaterheating" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="invalid-feedback">Please select an option.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Air Conditioning (Yes/No):</label>
+                <select name="airconditioning" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="invalid-feedback">Please select an option.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Parking:</label>
+                <input type="number" name="parking" class="form-control" required>
+                <div class="invalid-feedback">Please enter the parking space.</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Preferred Area (Yes/No):</label>
+                <select name="prefarea" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <div class="invalid-feedback">Please select an option.</div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Validation Script -->
+    <script>
+    (function () {
+        'use strict';
+        const form = document.querySelector('#predictionForm');
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                // Collect form data
+                const formData = new FormData(form);
+                let formDataString = 'Form Data Submitted: \n';
+                alert(formDataString);
+            }
+            form.classList.add('was-validated');
+        }, false);
+    })();
+</script>
+</body>
+</html>
